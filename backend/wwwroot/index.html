@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenhouse System Docs</title>
+    <link class="fa-solid fa-file" rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon.ico">
+    <link rel="stylesheet" href="css/index.css">
+    <script defer src="scripts/smoothScroll.js"></script>
+</head>
+<body>
+
+    <header class="header__container">
+        <h1>Documentation</h1>
+    </header>
+
+    <main class="main__container">
+
+        <section class="go-back-section">
+            <a class="url" href="http://localhost:3001/about">Back to main page</a>
+        </section>
+
+        <section class="introduction">
+            <article class="introduction__article">
+                <h2>Introduction</h2>
+                <p>
+                    This guide is designed to help you navigate the resources in this API and showing you how to make different types of queries.
+                    <br/><br/>
+                    <em>Please note that while the GET methods can be accessed directly from this page, the POST, PUT, and DELETE methods require the use of an external development program like Insomnia or Postman.</em>
+                </p>
+                
+                <ul class="url-list">
+                    <li class="url-list__item">
+                        <strong>Base url:</strong>
+                        <a class="url base-url" href="http://localhost:3000/greenhouses">http://localhost:3000/greenhouses</a>
+                    </li>
+                </ul>
+
+                <section class="http-methods">
+                    <h3>Endpoints</h3>
+                    <nav class="table-of-contents">
+                        <ol class="table-of-contents__list">
+                            <li class="table-of-contents__item"><a href="#get-all-greenhouses">Get all greenhouses</a></li>
+                            <li class="table-of-contents__item"><a href="#get-greenhouse-by-id">Get greenhouse by ID</a></li>
+                            <li class="table-of-contents__item"><a href="#get-latest-greenhouse">Get latest greenhouse(s)</a></li>
+                            <li class="table-of-contents__item"><a href="#post-greenhouse">Post greenhouse data</a></li>
+                            <li class="table-of-contents__item"><a href="#put-greenhouse">Update greenhouse instance</a></li>
+                            <li class="table-of-contents__item"><a href="#delete-greenhouseId">Delete greenhouse by greenhouseId</a></li>
+                            <li class="table-of-contents__item"><a href="#delete-all-greenhouses">Delete all greenhouses</a></li>
+                        </ol>
+                    </nav>
+                </section>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2 ID="get-all-greenhouses">Get all greenhouses</h2>
+                <p>You can access all greenhouses by using the /greenhouses endpoint.</p>
+                <h3>Example</h3>
+                <div class="method__container">
+                    <p class="method__paragraph">
+                        <span class="method get-method">GET: </span>
+                        <a href="http://localhost:3000/greenhouses" target="_blank">http://localhost:3000/greenhouses</a>
+                    </p>
+                </div>
+                <pre>
+                    <code>
+[
+    {
+        _id: <span class="code__string">"644f749fbe296e434587b246"</span>,
+        greenhouseId: <span class="code__number">1</span>,
+        temperature: <span class="code__number">33.51</span>,
+        humidity: <span class="code__number">14.15</span>,
+        light: <span class="code__number">250866</span>,
+        modifiedDate: <span class="code__string">"2023-05-03T19:20:48:731Z"</span>,
+        __v: <span class="code__number">0</span>,
+    },
+    {
+        _id: <span class="code__string">"644f74b0be296e434587b249"</span>,
+        greenhouseId: <span class="code__number">1</span>,
+        temperature: <span class="code__number">33.42</span>,
+        humidity: <span class="code__number">14.55</span>,
+        light: <span class="code__number">250866</span>,
+        modifiedDate: <span class="code__string">"2023-05-03T19:20:48:731Z"</span>,
+        __v: <span class="code__number">0</span>,
+    },
+    {
+        _id: <span class="code__string">"644f74b2be296e434587b24b"</span>,
+        greenhouseId: <span class="code__number">1</span>,
+        temperature: <span class="code__number">33.37</span>,
+        humidity: <span class="code__number">14:43</span>,
+        light: <span class="code__number">250866</span>,
+        modifiedDate: <span class="code__string">"2023-05-03T19:20:48:731Z"</span>,
+        __v: <span class="code__number">0</span>,
+    }
+]
+                    </code>
+                </pre>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2 ID="get-greenhouse-by-id">Get a greenhouse by ID</h2>
+                <p>You can access a single greenhouse by using the greenhouses ID as a parameter.</p>
+                <h3>Example</h3>
+                <div class="method__container">
+                    <p class="method__paragraph">
+                        <span class="method get-method">GET: </span>
+                        <a href="http://localhost:3000/greenhouses/2" target="_blank">http://localhost:3000/greenhouses/2</a>
+                    </p>
+                </div>
+                <pre>
+                    <code>
+[
+    {
+        _id: <span class="code__string">"644f749fbe296e434587b246"</span>,
+        greenhouseId: <span class="code__number">2</span>,
+        temperature: <span class="code__number">33.51</span>,
+        humidity: <span class="code__number">13.15</span>,
+        light: <span class="code__number">250866</span>,
+        modifiedDate: <span class="code__string">"2023-05-03T19:20:48:731Z"</span>,
+        __v: <span class="code__number">0</span>,
+    }
+    {
+        _id: <span class="code__string">"644f74b0be296e434587b249"</span>,
+        greenhouseId: <span class="code__number">2</span>,
+        temperature: <span class="code__number">33.42</span>,
+        humidity: <span class="code__number">14.55</span>,
+        light: <span class="code__number">250866</span>,
+        modifiedDate: <span class="code__string">"2023-05-03T19:20:48:731Z"</span>,
+        __v: <span class="code__number">0</span>,
+    },
+    {
+        _id: <span class="code__string">"644f74b2be296e434587b24b"</span>,
+        greenhouseId: <span class="code__number">2</span>,
+        temperature: <span class="code__number">33.37</span>,
+        humidity: <span class="code__number">14:43</span>,
+        light: <span class="code__number">250866</span>,
+        modifiedDate: <span class="code__string">"2023-05-03T19:20:48:731Z"</span>,
+        __v: <span class="code__number">0</span>,
+    }
+]
+                    </code>
+                </pre>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2 ID="get-latest-greenhouse">Get latest greenhouse(s)</h2>
+                <p>You can access the latest greenhouse data by using the /greenhouses/latest/:max endpoint and provide a number of how many greenhouses you want to see in the ":max" parameter.</p>
+                <h3>Example</h3>
+                <div class="method__container">
+                    <p class="method__paragraph">
+                        <span class="method get-method">GET: </span>
+                        <a href="http://localhost:3000/greenhouses/latest/1" target="_blank">http://localhost:3000/greenhouses/latest/1</a>
+                    </p>
+                </div>
+                <pre>
+                    <code>
+    {
+        _id: <span class="code__string">"6452ca992accaa732097e5b7"</span>,
+        greenhouseId: <span class="code__number">1</span>,
+        temperature: <span class="code__number">33.39</span>,
+        humidity: <span class="code__number">12.53</span>,
+        light: <span class="code__number">148591</span>,
+        modifiedDate: <span class="code__string">"2023-05-03T20:56:57.913Z"</span>,
+        __v: <span class="code__number">0</span>,
+    }
+                    </code>
+                </pre>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2 ID="post-greenhouse">Post greenhouse data</h2>
+                <p>You can post greenhouse data by adding the following parameters as a JSON object:</p>
+                    <ul>
+                        <li>greenhouseId</li>
+                        <li>temperature</li>
+                        <li>humidity</li>
+                        <li>light</li>
+                    </ul>
+                    <p>The post method is implemented in the Arduino and uses this JSON format to push data to the server. If you wish to change what greenhouseId to send data to in the Arduino code, you can do so simply by setting the correct ID in the paramtere of the function:</p>
+                    <p class="marked-text">sendGreenhouseData(hostDomain, hostPort, <span class="marked-text">1</span>, temperature, humidity, luxToInt);</p>
+                <h3>Example</h3>
+                <div class="method__container">
+                    <p class="method__paragraph">
+                        <span class="method post-method">POST: </span>
+                        <a href="http://localhost:3000/greenhouses" target="_blank">http://localhost:3000/greenhouses</a>
+                    </p>
+                </div>
+                <pre>
+                    <code>
+{
+    <span class="code__string">"temperature"</span>: <span class="code__number">number</span>,
+    <span class="code__string">"humidity"</span>: <span class="code__number">number</span>,
+    <span class="code__string">"light"</span>: <span class="code__number">number</span>,
+    <span class="code__string">"greenhouseId"</span>: <span class="code__number">number</span>,
+}
+                    </code>
+                </pre>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2 ID="put-greenhouse">Update greenhouse instance</h2>
+                <p>To update a greenhouse instance, you need to provide its ID in the endpoint and specify new values for the temperature, humidity, and light parameters. Note that you cannot change the greenhouseId for security reasons.</p>
+                <h3>Example</h3>
+                <div class="method__container">
+                    <p class="method__paragraph">
+                        <span class="method put-method">PUT: </span>
+                        <a href="http://localhost:3000/greenhouses/6452caaf2accaa732097e5d5" target="_blank">http://localhost:3000/greenhouses/6452caaf2accaa732097e5d5</a>
+                    </p>
+                </div>
+                <pre>
+                    <code>
+{
+    <span class="code__string">"temperature"</span>: <span class="code__number">number</span>,
+    <span class="code__string">"humidity"</span>: <span class="code__number">number</span>,
+    <span class="code__string">"light"</span>: <span class="code__number">number</span>,
+}
+                    </code>
+                </pre>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2 ID="delete-greenhouseId">Delete greenhouse by greenhouseId</h2>
+                <p>To delete a specific greenhouse instance, provide the greenhouseId of the instance you want to delete from the database using the following endpoint:</p>
+                <p><em>Please note that this is strictly for testing purposes and will be available only for administrators/superusers once the page is publicly deployed.</em></p>
+                <h3>Example</h3>
+                <div class="method__container">
+                    <p class="method__paragraph">
+                        <span class="method delete-method">DELETE: </span>
+                        <a href="http://localhost:3000/greenhouses/1" target="_blank">http://localhost:3000/greenhouses/1</a>
+                    </p>
+                </div>
+                <pre>
+                    <code>
+{
+    <span class="code__string">"acknowledged"</span>: <span class="code__number">true</span>,
+    <span class="code__string">"deletedCount"</span>: <span class="code__number">1</span>
+}
+                    </code>
+                </pre>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2 ID="delete-all-greenhouses">Delete all greenhouses</h2>
+                <p>You can delete all greenhouses by providing the base url.</p>
+                <p><em>Please note that this is strictly for testing purposes and will be available only for administrators/superusers once the page is publicly deployed.</em></p>
+                <h3>Example</h3>
+                <div class="method__container">
+                    <p class="method__paragraph">
+                        <span class="method delete-method">DELETE: </span>
+                        <a href="http://localhost:3000/greenhouses/1" target="_blank">http://localhost:3000/greenhouses</a>
+                    </p>
+                </div>
+                <pre>
+                    <code>
+{
+    <span class="code__string">"acknowledged"</span>: <span class="code__number">true</span>,
+    <span class="code__string">"deletedCount": <span class="code__number">1561</span>
+}
+                    </code>
+                </pre>
+            </article>
+        </section>
+
+    </main>
+
+    <footer></footer>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+/* GENERAL */
+
+:root{
+    --clr-txt:          #1E2328;
+    --clr-bg:           #fcfbf7;
+    --clr-accent:       #fc8d1fcb;
+    --clr-id:           #1f8efc;
+    --clr-string:       #97c933;
+}
+
+body{
+    margin: 0;
+    background-color: var(--clr-bg);
+    color: var(--clr-txt);
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    line-height: 1.5rem;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, p, a{
+    font-family: "Helvetica Neue",sans-serif;
+}
+
+p{
+   line-height: 1.6rem;
+   margin-bottom: 1.6rem;
+}
+
+em{
+    font-weight: 300;
+}
+
+.marked-text{
+    background-color: var(--clr-accent);
+}
+/* -------------------- HEADER -------------------- */
+
+.header__container{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------------- MAIN -------------------- */
+
+.main__container{
+    margin: 0 15vw;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+section{
+    grid-column: auto / span 12;
+}
+
+article{
+    padding: 1.5rem 0;
+}
+
+/* CODE BLOCKS */
+
+pre{
+    background-color:  var(--clr-txt);
+    color: var(--clr-bg);
+    padding: .55rem;
+    border-radius: 0;
+    width: fit-content;
+}
+
+.code__number{
+    color: var(--clr-id);
+}
+
+.code__string{
+    color: var(--clr-string);
+}
+
+/* HTTP METHODS */
+
+.method__container{
+    background-color: var(--clr-txt);
+    width: fit-content;
+    padding: .5rem;
+    border-radius: 0;
+}
+
+.http-methods{
+    margin-top: 2rem;
+}
+
+.method__paragraph > a{
+    color: var(--clr-bg);
+    text-decoration: none;
+    word-wrap: break-word;
+}
+
+.get-method{
+    font-weight: 600;
+    margin-right: .2rem;
+    color: rgb(97,175,254);
+}
+
+.post-method{
+    font-weight: 600;
+    color: rgb(73,204,144);
+}
+
+.put-method{
+    font-weight: 600;
+    color: rgb(252,161,48);
+}
+
+.delete-method{
+    font-weight: 600;
+    color: rgb(249,62,62);
+}
+
+/* LINKS */
+
+a{
+    text-decoration: none;
+    transition: .1s ease-in-out;
+    color: var(--clr-txt);
+}
+
+a:hover{
+    cursor: pointer;
+    text-decoration: underline solid .12rem var(--clr-accent);
+    text-underline-offset: .2rem;
+}
+
+.url-list{
+    padding: 0 1rem;
+}
+
+.table-of-contents__list{
+    padding: 0 1rem;
+}
+
+.table-of-contents__item > a{
+    text-decoration: none;
+    border: none;
+    transition: .2s ease-in-out;
+}
+
+.table-of-contents__item:hover > a{
+    text-decoration: underline solid .12rem var(--clr-accent);
+    text-underline-offset: .2rem;
+}
+
+.go-back-section{
+    position: fixed;
+    bottom: .5rem;
+    right: .5rem;
+    background-color: var(--clr-bg);
+    padding: .5rem;
+    border-radius: 1rem;
+    font-size: .8rem;
+    box-shadow: 0px 0px 33px -6px rgba(0,0,0,0.1);
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (min-width: 350px) {
+    .method__container{
+        width: 100%;
+        border-radius: 0 1rem 0 0;
+    }
+
+    pre{
+        width: 100%;
+        border-radius: 0 0 0 1rem;
+    }
+}
+@media only screen and (min-width: 832px) {
+    .go-back-section{
+        font-size: 1rem;
+        padding: 1rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .main__container{
+        margin: 0 20vw;
+    }
+}
+
+@media only screen and (min-width: 1187px) {
+    .main__container{
+        margin: 0 29vw;
+    }
+}
